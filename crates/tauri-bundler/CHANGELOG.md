@@ -1,5 +1,11 @@
 # Changelog
 
+## \[2.5.1]
+
+### Bug Fixes
+
+- [`f2dbe7309`](https://www.github.com/tauri-apps/tauri/commit/f2dbe730979d570be3ee3ecac9621204c4ceb788) ([#13772](https://www.github.com/tauri-apps/tauri/pull/13772) by [@catalinsh](https://www.github.com/tauri-apps/tauri/../../catalinsh)) Fix incorrect expected file path for `nsis_tauri_utils.dll` resulting in tauri-cli re-downloading the file on every build.
+
 ## \[2.5.0]
 
 ### New Features

@@ -1,5 +1,11 @@
 # Changelog
 
+## \[2.6.1]
+
+### Bug Fixes
+
+- [`152d971bc`](https://www.github.com/tauri-apps/tauri/commit/152d971bcd6c1fdc5716f7d5417dd4df5ce7479f) ([#13744](https://www.github.com/tauri-apps/tauri/pull/13744) by [@Legend-Master](https://www.github.com/tauri-apps/tauri/../../Legend-Master)) Expose `unregisterCallback`, `runCallback`, `callbacks` in `mockIPC`
+
 ## \[2.6.0]
 
 ### New Features
