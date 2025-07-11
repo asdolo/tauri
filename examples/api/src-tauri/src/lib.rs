@@ -42,7 +42,7 @@ pub fn run_app<R: Runtime, F: FnOnce(&App<R>) + Send + 'static>(
   let mut builder = builder
     .plugin(
       tauri_plugin_log::Builder::default()
-        .level(log::LevelFilter::Info)
+        .level(log::LevelFilter::Debug)
         .build(),
     )
     .plugin(tauri_plugin_sample::init())
@@ -156,7 +156,8 @@ pub fn run_app<R: Runtime, F: FnOnce(&App<R>) + Send + 'static>(
   #[cfg(target_os = "macos")]
   app.set_activation_policy(tauri::ActivationPolicy::Regular);
 
-  app.run(move |_app_handle, _event| {
+  app.run(move |app_handle, _event| {
+    log::debug!("Running app {app_handle:?}");
     #[cfg(all(desktop, not(test)))]
     match &_event {
       RunEvent::ExitRequested { api, code, .. } => {
@@ -176,7 +177,7 @@ pub fn run_app<R: Runtime, F: FnOnce(&App<R>) + Send + 'static>(
         // run the window destroy manually just for fun :)
         // usually you'd show a dialog here to ask for confirmation or whatever
         api.prevent_close();
-        _app_handle
+        app_handle
           .get_webview_window(label)
           .unwrap()
           .destroy()
